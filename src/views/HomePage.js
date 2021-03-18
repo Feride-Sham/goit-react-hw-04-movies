@@ -23,7 +23,10 @@ class HomePage extends Component {
           {movies.map((movie) => {
             return (
               <li key={movie.id}>
-                <Link to={``}>
+                <Link
+                  // не работает !!!! разобраться
+                  to={`https://api.themoviedb.org/3/movie/${movie.id}?api_key=2955876276611e1cc2d97a4794387b9d&language=en-US`}
+                >
                   <img
                     loading="lazy"
                     src={imgBaseUrl + movie.poster_path}
