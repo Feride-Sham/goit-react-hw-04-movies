@@ -2,42 +2,38 @@ import React, { Component } from "react";
 // import s from "./Searchbar.module.css";
 import x from "../services/movieAPI";
 const { getSearchMovie } = x;
-const fetchType = "search/movie";
-const params = "&language=en-US&page=1&include_adult=false";
 
 class MoviesPage extends Component {
   state = {
-    query: "gifted",
+    query: "",
     searchMovies: [],
     imgBaseUrl: "https://image.tmdb.org/t/p/w500",
   };
 
-  // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
-  async componentDidMount() {
+  handleChange = (ev) => {
+    console.log(ev.currentTarget.value);
+    this.setState({ query: ev.currentTarget.value });
+  };
+
+  handleSubmit = (ev) => {
+    ev.preventDefault();
+
     getSearchMovie(this.state.query).then((result) =>
       this.setState({ searchMovies: result })
     );
-  }
-  // handleChange = (ev) => {
-  //   this.setState({ query: ev.currentTarget.value });
-  // };
 
-  // handleSubmit = (ev) => {
-  //   ev.preventDefault();
-  //   this.setState({ query: "" });
-  // };
+    this.setState({ query: "" });
+  };
 
   render() {
     const { searchMovies, imgBaseUrl } = this.state;
     return (
       <>
         <h1>MoviesPage</h1>
-        <form
-        // onSubmit={this.handleSubmit}
-        >
+        <form onSubmit={this.handleSubmit}>
           <input
-            // value={this.state.query}
-            // onChange={this.handleChange}
+            value={this.state.query}
+            onChange={this.handleChange}
             type="text"
           />
           <button type="submit">

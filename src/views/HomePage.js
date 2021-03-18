@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import x from "../services/movieAPI";
 const { getTrendingMovies } = x;
@@ -22,7 +23,7 @@ class HomePage extends Component {
           {movies.map((movie) => {
             return (
               <li key={movie.id}>
-                <a href="#">
+                <Link to={``}>
                   <img
                     loading="lazy"
                     src={imgBaseUrl + movie.poster_path}
@@ -31,7 +32,7 @@ class HomePage extends Component {
                     width="280"
                   />
                   <h2>{movie.original_title}</h2>
-                </a>
+                </Link>
               </li>
             );
           })}
