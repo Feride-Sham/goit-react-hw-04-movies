@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, NavLink, Switch } from "react-router-dom";
 import HomePage from "./views/HomePage";
 import MoviesPage from "./views/MoviesPage";
 import NotFoundView from "./views/NotFoundView";
@@ -11,12 +11,13 @@ const App = () => {
     <>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/movies">Movies</Link>
+          <NavLink to="/movies">Movies</NavLink>
         </li>
       </ul>
+
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/movies" component={MoviesPage} />
