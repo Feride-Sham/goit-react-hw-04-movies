@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import MoviesGallery from "../components/MoviesGallery/MoviesGallery";
+
 // import s from "./Searchbar.module.css";
 import x from "../services/movieAPI";
 const { getSearchMovie } = x;
@@ -42,13 +44,12 @@ class MoviesPageView extends Component {
             <span>Search</span>
           </button>
         </form>
-        <ul>
+        <MoviesGallery movies={searchMovies} imgBaseUrl={imgBaseUrl} />
+
+        {/* <ul>
           {searchMovies.map((el) => (
             <li key={el.id}>
-              <Link
-                // не работает !!!! разобратьсяhttps://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
-                to={`${this.props.match.url}/${el.id}`}
-              >
+              <Link to={`${this.props.match.url}/${el.id}`}>
                 <img
                   loading="lazy"
                   src={imgBaseUrl + el.poster_path}
@@ -60,7 +61,7 @@ class MoviesPageView extends Component {
               </Link>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </>
     );
   }
