@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { NavLink, Route } from "react-router-dom";
-import CastPage from "../components/CastPage";
-import RewiesPage from "../components/RewiesPage";
+import CastPage from "../components/CastPage/CastPage";
+import RewiesPage from "../components/RewiesPage/RewiesPage";
 import x from "../services/movieAPI";
 const { getDetailsMovie } = x;
-class MovieDetailsPage extends Component {
+class MovieDetailsPageView extends Component {
   state = {
     imgDetail: {},
     imgBaseUrl: "https://image.tmdb.org/t/p/w500",
@@ -77,4 +77,4 @@ class MovieDetailsPage extends Component {
   }
 }
 
-export default MovieDetailsPage;
+export default MovieDetailsPageView;

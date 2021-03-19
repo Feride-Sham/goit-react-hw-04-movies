@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import x from "../services/movieAPI";
+import x from "../../services/movieAPI";
 const { getMovieCast } = x;
 
 class CastPage extends Component {

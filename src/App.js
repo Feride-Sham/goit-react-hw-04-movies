@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, NavLink, Switch } from "react-router-dom";
-import HomePage from "./views/HomePage";
-import MoviesPage from "./views/MoviesPage";
-import MovieDetailsPage from "./views/MovieDetailsPage";
+import HomePageView from "./views/HomePageView";
+import MoviesPageView from "./views/MoviesPageView";
+import MovieDetailsPageView from "./views/MovieDetailsPageView";
 import NotFoundView from "./views/NotFoundView";
 
 import "./App.css";
@@ -20,9 +20,9 @@ const App = () => {
       </ul>
 
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/movies/:movieID" component={MovieDetailsPage} />
-        <Route path="/movies" component={MoviesPage} />
+        <Route exact path="/" component={HomePageView} />
+        <Route path="/movies/:movieID" component={MovieDetailsPageView} />
+        <Route path="/movies" component={MoviesPageView} />
         <Route component={NotFoundView} />
       </Switch>
     </>

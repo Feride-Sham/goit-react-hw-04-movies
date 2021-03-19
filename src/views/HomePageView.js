@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import x from "../services/movieAPI";
 const { getTrendingMovies } = x;
 
-class HomePage extends Component {
+class HomePageView extends Component {
   state = {
     movies: [],
     imgBaseUrl: "https://image.tmdb.org/t/p/w500",
@@ -49,4 +49,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default HomePageView;

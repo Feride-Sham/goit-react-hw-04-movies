@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import x from "../services/movieAPI";
 const { getSearchMovie } = x;
 
-class MoviesPage extends Component {
+class MoviesPageView extends Component {
   state = {
     query: "",
     searchMovies: [],
@@ -66,4 +66,4 @@ class MoviesPage extends Component {
   }
 }
 
-export default MoviesPage;
+export default MoviesPageView;
