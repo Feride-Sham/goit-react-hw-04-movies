@@ -23,14 +23,21 @@ class RewiesPage extends Component {
     return (
       <>
         <h1>Rewies</h1>
-        <ul>
-          {rewies.map((rewie) => (
-            <li key={rewie.id}>
-              <p>{rewie.author}</p>
-              <p>{rewie.content}</p>
-            </li>
-          ))}
-        </ul>
+        {rewies.length > 0 ? (
+          <ul>
+            {rewies.map((rewie) => {
+              const { id, author, content } = rewie;
+              return (
+                <li key={id}>
+                  <p>{author}</p>
+                  <p>{content}</p>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p>This movie has no reviews yet.</p>
+        )}
       </>
     );
   }
