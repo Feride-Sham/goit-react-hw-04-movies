@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { NavLink, Route } from "react-router-dom";
+import CastPage from "../components/CastPage";
 import x from "../services/movieAPI";
 const { getDetailsMovie } = x;
 class MovieDetailsPage extends Component {
@@ -27,6 +29,7 @@ class MovieDetailsPage extends Component {
       vote_average,
       overview,
     } = imgDetail;
+    console.log(this.props.match.url);
     return (
       <>
         <div>
@@ -51,6 +54,17 @@ class MovieDetailsPage extends Component {
               ))}
             </ul>
           </div>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <NavLink to={`${this.props.match.url}/cast`}>Cast</NavLink>
+            </li>
+            <li>
+              <NavLink to={`${this.props.match.url}/reviews`}>Rewies</NavLink>
+            </li>
+          </ul>
+          <Route path={`${this.props.match.url}/cast`} component={CastPage} />
         </div>
       </>
     );
