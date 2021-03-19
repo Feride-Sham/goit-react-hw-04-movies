@@ -23,8 +23,7 @@ class RewiesPage extends Component {
         <h1>Rewies</h1>
         {rewies.length > 0 ? (
           <ul>
-            {rewies.map((rewie) => {
-              const { id, author, content } = rewie;
+            {rewies.map(({ id, author, content }) => {
               return (
                 <li key={id}>
                   <p>{author}</p>

@@ -22,8 +22,7 @@ class CastPage extends Component {
       <>
         <h1>Cast</h1>
         <ul>
-          {actors.map((actor) => {
-            const { id, profile_path, name } = actor;
+          {actors.map(({ id, profile_path, name }) => {
             return (
               <li key={id}>
                 <img
