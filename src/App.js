@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, NavLink, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import HomePageView from "./views/HomePageView";
 import MoviesPageView from "./views/MoviesPageView";
 import MovieDetailsPageView from "./views/MovieDetailsPageView";

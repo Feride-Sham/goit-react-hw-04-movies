@@ -21,7 +21,6 @@ class HomePageView extends Component {
 
     return (
       <>
-        <h1>HomePage</h1>
         <MoviesGallery movies={movies} />
       </>
     );

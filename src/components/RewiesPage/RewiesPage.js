@@ -10,9 +10,7 @@ class RewiesPage extends Component {
   async componentDidMount() {
     const { movieId } = this.props;
 
-    console.log(movieId);
     getMovieRewies(movieId).then((result) => {
-      console.log(result.results);
       this.setState({ rewies: result.results });
     });
   }

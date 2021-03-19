@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import MoviesGallery from "../components/MoviesGallery/MoviesGallery";
 
 // import s from "./Searchbar.module.css";
@@ -30,7 +29,6 @@ class MoviesPageView extends Component {
     const { searchMovies } = this.state;
     return (
       <>
-        <h1>MoviesPage</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             value={this.state.query}

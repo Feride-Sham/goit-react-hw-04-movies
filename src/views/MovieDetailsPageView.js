@@ -14,9 +14,7 @@ class MovieDetailsPageView extends Component {
   async componentDidMount() {
     const { movieID } = this.props.match.params;
 
-    console.log(movieID);
     getDetailsMovie(movieID).then((result) => {
-      console.log(result);
       this.setState({ imgDetail: result, imgGenres: result.genres });
     });
   }
@@ -30,12 +28,10 @@ class MovieDetailsPageView extends Component {
       vote_average,
       overview,
     } = imgDetail;
-    console.log(this.props.match.url);
     return (
       <>
         <div>
           <div>
-            <h1>MovieDetailsPage {this.props.match.params.movieID}</h1>
             <img
               loading="lazy"
               src={imgBaseUrl + poster_path}

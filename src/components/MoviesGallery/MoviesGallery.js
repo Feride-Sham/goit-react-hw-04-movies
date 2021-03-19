@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import MoviePreview from "../MoviePreview/MoviePreview";
 
-const MoviesGallery = ({ movies, imgBaseUrl }) => {
+const MoviesGallery = ({ movies }) => {
   return (
     <ul>
       {movies.map((movie) => (
