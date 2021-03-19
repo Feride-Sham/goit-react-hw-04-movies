@@ -19,7 +19,6 @@ async function getSearchMovie(searchQuery) {
   );
   const data = await response.data;
   const results = await data.results;
-  console.log(data);
   return results;
 }
 
@@ -29,8 +28,6 @@ async function getDetailsMovie(movieId) {
     `${baseURL}movie/${movieId}?api_key=${myAPIkey}&language=en-US`
   );
   const data = await response.data;
-  // const results = await data.results;
-  console.log(data);
   return data;
 }
 // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
@@ -39,8 +36,6 @@ async function getMovieCast(movieId) {
     `${baseURL}movie/${movieId}/credits?api_key=${myAPIkey}&language=en-US`
   );
   const data = await response.data;
-  // const results = await data.results;
-  console.log(data);
   return data;
 }
 
@@ -50,8 +45,6 @@ async function getMovieRewies(movieId) {
     `${baseURL}movie/${movieId}/reviews?api_key=${myAPIkey}&language=en-US`
   );
   const data = await response.data;
-  // const results = await data.results;
-  console.log(data);
   return data;
 }
 

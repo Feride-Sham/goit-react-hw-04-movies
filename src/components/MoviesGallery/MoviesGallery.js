@@ -1,25 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MoviePreview from "../MoviePreview/MoviePreview";
 
-const MoviesGallery = ({ movies, match, imgBaseUrl }) => {
+const MoviesGallery = ({ movies, imgBaseUrl }) => {
   return (
     <ul>
-      {movies.map((movie) => {
-        return (
-          <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>
-              <img
-                loading="lazy"
-                src={imgBaseUrl + movie.poster_path}
-                alt={movie.original_title}
-                data={movie.id}
-                width="280"
-              />
-              <h2>{movie.original_title}</h2>
-            </Link>
-          </li>
-        );
-      })}
+      {movies.map((movie) => (
+        <MoviePreview movie={movie} key={movie.id} />
+      ))}
     </ul>
   );
 };
