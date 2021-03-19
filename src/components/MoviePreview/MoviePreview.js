@@ -1,12 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 const imgBaseUrl = "https://image.tmdb.org/t/p/w500";
 
-const MoviePreview = ({ movie }) => {
+const MoviePreview = ({ movie, location }) => {
   const { id, poster_path, original_title } = movie;
   return (
     <li>
-      <Link to={`/movies/${id}`}>
+      <Link
+        to={{
+          pathname: `/movies/${id}`,
+          state: {
+            from: location,
+          },
+        }}
+      >
         <img
           loading="lazy"
           src={`${imgBaseUrl}${poster_path}`}
@@ -20,4 +27,4 @@ const MoviePreview = ({ movie }) => {
   );
 };
 
-export default MoviePreview;
+export default withRouter(MoviePreview);

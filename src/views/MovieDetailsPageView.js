@@ -19,6 +19,11 @@ class MovieDetailsPageView extends Component {
     });
   }
 
+  handleGoBack = () => {
+    const { history, location } = this.props;
+    history.push(location.state.from);
+  };
+
   render() {
     const { imgDetail, imgBaseUrl, imgGenres } = this.state;
     const {
@@ -28,9 +33,13 @@ class MovieDetailsPageView extends Component {
       vote_average,
       overview,
     } = imgDetail;
+
     return (
       <>
         <div>
+          <button type="button" onClick={this.handleGoBack}>
+            Back
+          </button>
           <div>
             <img
               loading="lazy"
