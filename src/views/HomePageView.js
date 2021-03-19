@@ -24,11 +24,7 @@ class HomePageView extends Component {
     return (
       <>
         <h1>HomePage</h1>
-        <MoviesGallery
-          movies={movies}
-          imgBaseUrl={imgBaseUrl}
-          urlPath={"/movies"}
-        />
+        <MoviesGallery movies={movies} imgBaseUrl={imgBaseUrl} />
       </>
     );
   }

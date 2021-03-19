@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MoviesGallery = ({ movies, match, imgBaseUrl, urlPath }) => {
+const MoviesGallery = ({ movies, match, imgBaseUrl }) => {
   return (
     <ul>
       {movies.map((movie) => {
         return (
           <li key={movie.id}>
-            <Link to={`${match.url}${urlPath}/${movie.id}`}>
+            <Link to={`/movies/${movie.id}`}>
               <img
                 loading="lazy"
                 src={imgBaseUrl + movie.poster_path}
@@ -24,4 +24,4 @@ const MoviesGallery = ({ movies, match, imgBaseUrl, urlPath }) => {
   );
 };
 
-export default withRouter(MoviesGallery);
+export default MoviesGallery;
