@@ -64,7 +64,9 @@ class MovieDetailsPage extends Component {
               <NavLink to={`${this.props.match.url}/reviews`}>Rewies</NavLink>
             </li>
           </ul>
-          <Route path={`${this.props.match.url}/cast`} component={CastPage} />
+          <Route path={`${this.props.match.url}/cast`}>
+            <CastPage movieId={id} />
+          </Route>
         </div>
       </>
     );

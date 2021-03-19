@@ -33,5 +33,20 @@ async function getDetailsMovie(movieId) {
   console.log(data);
   return data;
 }
+// https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+async function getMovieCast(movieId) {
+  const response = await axios.get(
+    `${baseURL}movie/${movieId}/credits?api_key=${myAPIkey}&language=en-US`
+  );
+  const data = await response.data;
+  // const results = await data.results;
+  console.log(data);
+  return data;
+}
 
-export default { getTrendingMovies, getSearchMovie, getDetailsMovie };
+export default {
+  getTrendingMovies,
+  getSearchMovie,
+  getDetailsMovie,
+  getMovieCast,
+};
