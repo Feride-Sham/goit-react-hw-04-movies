@@ -4,25 +4,20 @@ import HomePageView from "./views/HomePageView";
 import MoviesPageView from "./views/MoviesPageView";
 import MovieDetailsPageView from "./views/MovieDetailsPageView";
 import NotFoundView from "./views/NotFoundView";
+import AppBar from "./components/AppBar/AppBar";
+import routes from "./routes";
 
 import "./App.css";
 
 const App = () => {
   return (
     <>
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/movies">Movies</NavLink>
-        </li>
-      </ul>
+      <AppBar />
 
       <Switch>
-        <Route exact path="/" component={HomePageView} />
-        <Route path="/movies/:movieID" component={MovieDetailsPageView} />
-        <Route path="/movies" component={MoviesPageView} />
+        <Route exact path={routes.home} component={HomePageView} />
+        <Route path={routes.movieDetails} component={MovieDetailsPageView} />
+        <Route path={routes.movies} component={MoviesPageView} />
         <Route component={NotFoundView} />
       </Switch>
     </>
