@@ -29,7 +29,7 @@ class HomePage extends Component {
               <li key={movie.id}>
                 <Link
                   // не работает !!!! разобратьсяhttps://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
-                  to={`${this.props.match.url}/${movie.id}`}
+                  to={`${this.props.match.url}movies/${movie.id}`}
                 >
                   <img
                     loading="lazy"
