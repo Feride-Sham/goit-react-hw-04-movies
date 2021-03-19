@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink, Route } from "react-router-dom";
 import CastPage from "../components/CastPage";
+import RewiesPage from "../components/RewiesPage";
 import x from "../services/movieAPI";
 const { getDetailsMovie } = x;
 class MovieDetailsPage extends Component {
@@ -66,6 +67,9 @@ class MovieDetailsPage extends Component {
           </ul>
           <Route path={`${this.props.match.url}/cast`}>
             <CastPage movieId={id} />
+          </Route>
+          <Route path={`${this.props.match.url}/reviews`}>
+            <RewiesPage movieId={id} />
           </Route>
         </div>
       </>

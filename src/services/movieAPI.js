@@ -44,9 +44,21 @@ async function getMovieCast(movieId) {
   return data;
 }
 
+// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
+async function getMovieRewies(movieId) {
+  const response = await axios.get(
+    `${baseURL}movie/${movieId}/reviews?api_key=${myAPIkey}&language=en-US`
+  );
+  const data = await response.data;
+  // const results = await data.results;
+  console.log(data);
+  return data;
+}
+
 export default {
   getTrendingMovies,
   getSearchMovie,
   getDetailsMovie,
   getMovieCast,
+  getMovieRewies,
 };
