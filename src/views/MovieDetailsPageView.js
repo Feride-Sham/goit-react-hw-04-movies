@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink, Route } from "react-router-dom";
 import CastPage from "../components/CastPage/CastPage";
 import RewiesPage from "../components/RewiesPage/RewiesPage";
+import routes from "../routes";
 import x from "../services/movieAPI";
 const { getDetailsMovie } = x;
 class MovieDetailsPageView extends Component {
@@ -21,7 +22,8 @@ class MovieDetailsPageView extends Component {
 
   handleGoBack = () => {
     const { history, location } = this.props;
-    history.push(location.state.from);
+    //use optional chaining(?.) 2020 JS
+    history.push(location?.state?.from || routes.home);
   };
 
   render() {
