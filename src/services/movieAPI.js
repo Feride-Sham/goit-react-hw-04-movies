@@ -23,4 +23,15 @@ async function getSearchMovie(searchQuery) {
   return results;
 }
 
-export default { getTrendingMovies, getSearchMovie };
+// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+async function getDetailsMovie(movieId) {
+  const response = await axios.get(
+    `${baseURL}movie/${movieId}?api_key=${myAPIkey}&language=en-US`
+  );
+  const data = await response.data;
+  // const results = await data.results;
+  console.log(data);
+  return data;
+}
+
+export default { getTrendingMovies, getSearchMovie, getDetailsMovie };

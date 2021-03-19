@@ -1,39 +1,35 @@
 import React, { Component } from "react";
-
+import x from "../services/movieAPI";
+const { getDetailsMovie } = x;
 class MovieDetailsPage extends Component {
   state = {
-    // movies: [],
-    // imgBaseUrl: "https://image.tmdb.org/t/p/w500",
+    imgDetail: {},
+    imgBaseUrl: "https://image.tmdb.org/t/p/w500",
   };
 
-  // async componentDidMount() {
-  //   getTrendingMovies().then((result) => this.setState({ movies: result }));
-  // }
+  async componentDidMount() {
+    const { movieID } = this.props.match.params;
+
+    console.log(movieID);
+    getDetailsMovie(movieID).then((result) => {
+      console.log(result);
+      this.setState({ imgDetail: result });
+    });
+  }
 
   render() {
-    // const { movies, imgBaseUrl } = this.state;
+    const { imgDetail, imgBaseUrl } = this.state;
     return (
       <>
-        <h1>MovieDetailsPage</h1>
-        {/* <h1>HomePage</h1>
-        <ul>
-          {movies.map((movie) => {
-            return (
-              <li key={movie.id}>
-                <Link to={``}>
-                  <img
-                    loading="lazy"
-                    src={imgBaseUrl + movie.poster_path}
-                    alt={movie.original_title}
-                    data={movie.id}
-                    width="280"
-                  />
-                  <h2>{movie.original_title}</h2>
-                </Link>
-              </li>
-            );
-          })}
-        </ul> */}
+        <h1>MovieDetailsPage {this.props.match.params.movieID}</h1>
+        <img
+          loading="lazy"
+          src={imgBaseUrl + imgDetail.poster_path}
+          alt={imgDetail.original_title}
+          data={imgDetail.id}
+          width="280"
+        />
+        <h2>{imgDetail.original_title}</h2>
       </>
     );
   }

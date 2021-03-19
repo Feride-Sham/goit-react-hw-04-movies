@@ -11,10 +11,14 @@ class HomePage extends Component {
   };
 
   async componentDidMount() {
-    getTrendingMovies().then((result) => this.setState({ movies: result }));
+    getTrendingMovies().then((result) => {
+      console.log(result);
+      this.setState({ movies: result });
+    });
   }
 
   render() {
+    console.log(this.props.match.url);
     const { movies, imgBaseUrl } = this.state;
     return (
       <>
@@ -24,8 +28,8 @@ class HomePage extends Component {
             return (
               <li key={movie.id}>
                 <Link
-                  // не работает !!!! разобраться
-                  to={`https://api.themoviedb.org/3/movie/${movie.id}?api_key=2955876276611e1cc2d97a4794387b9d&language=en-US`}
+                  // не работает !!!! разобратьсяhttps://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+                  to={`${this.props.match.url}/${movie.id}`}
                 >
                   <img
                     loading="lazy"
