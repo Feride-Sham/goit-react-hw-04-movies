@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 const imgBaseUrl = "https://image.tmdb.org/t/p/w500";
 
 const MoviePreview = ({ movie, location }) => {
-  const { id, poster_path, original_title } = movie;
+  const { id, poster_path, original_title, original_name } = movie;
+  console.log(movie);
   return (
     <li>
       <Link
@@ -22,7 +23,7 @@ const MoviePreview = ({ movie, location }) => {
           data={id}
           width="280"
         />
-        <h2>{original_title}</h2>
+        <h2>{original_title ? original_title : original_name}</h2>
       </Link>
     </li>
   );
