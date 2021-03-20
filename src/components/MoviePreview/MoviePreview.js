@@ -5,7 +5,6 @@ const imgBaseUrl = "https://image.tmdb.org/t/p/w500";
 
 const MoviePreview = ({ movie, location }) => {
   const { id, poster_path, original_title, original_name } = movie;
-  console.log(movie);
   return (
     <li>
       <Link
