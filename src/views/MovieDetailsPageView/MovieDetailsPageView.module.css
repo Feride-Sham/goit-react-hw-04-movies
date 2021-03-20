@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+
+  margin-top: 20px;
+}
+
+.movieInfo {
+  display: block;
+  width: 80%;
+  flex-direction: row;
+  padding: 20px 20px 40px;
+  margin: 0 auto;
+
+  color: white;
+
+  border-bottom: 1px solid #2a363b;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(88, 87, 87, 0.5)),
+    to(rgba(61, 60, 60, 0.85))
+  );
+  box-shadow: 2px 3px 5px white;
+}
+
+.backBtn {
+  cursor: pointer;
+  min-width: 100px;
+  height: 40px;
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 6px;
+  text-transform: uppercase;
+  border: 0;
+  outline: none;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: rgba(70, 68, 70, 0.459);
+  box-shadow: 2px 3px 5px white;
+}
+
+.backBtn:hover {
+  color: orange;
+  box-shadow: 2px 3px 5px orange;
+}
+
+.box {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.link {
+  composes: backBtn;
+
+  text-decoration: none;
+}

@@ -1,0 +1,53 @@
+.detailBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  padding: 20px;
+  color: white;
+}
+
+.detailBox p {
+  margin: 0;
+}
+
+.poster {
+  margin-right: 20px;
+  width: 320px;
+  height: 100%;
+}
+
+.detailBoxContent {
+  display: block;
+  text-align: left;
+  width: 60%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.detailBoxContent h2 {
+  color: orange;
+  margin-top: 0;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.detailList {
+  list-style: none;
+  padding: 0;
+}
+
+.detailList li {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.infoTitle {
+  padding: 0;
+  color: orange;
+  flex-basis: 20%;
+}
+
+.text {
+  padding-left: 40px;
+}

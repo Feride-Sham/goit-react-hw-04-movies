@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import s from "./MovieDetailsCard.module.css";
 import errorImg from "../../image/errorFilm.jpg";
 
 const imgBaseUrl = "https://image.tmdb.org/t/p/w500";
@@ -8,26 +9,41 @@ const MovieDetailsCard = ({ movieDetails, genres }) => {
   const { poster_path, original_title, vote_average, overview } = movieDetails;
   return (
     <>
-      <div>
-        <img
-          loading="lazy"
-          src={
-            poster_path === undefined ? errorImg : `${imgBaseUrl}${poster_path}`
-          }
-          alt={original_title}
-          width="280"
-        />
-      </div>
-      <div>
-        <h2>{original_title}</h2>
-        <p>User score: </p> <span>{vote_average}</span>
-        <p>Overview: </p> <p>{overview}</p>
-        <p>Genres:</p>{" "}
-        <ul>
-          {genres.map((genre) => (
-            <li key={genre.id}>{genre.name}</li>
-          ))}
-        </ul>
+      <div className={s.detailBox}>
+        <div>
+          <img
+            className={s.poster}
+            loading="lazy"
+            src={
+              poster_path === undefined
+                ? errorImg
+                : `${imgBaseUrl}${poster_path}`
+            }
+            alt={original_title}
+            width="280"
+          />
+        </div>
+        <div className={s.detailBoxContent}>
+          <h2>{original_title}</h2>
+          <ul className={s.detailList}>
+            <li>
+              <p className={s.infoTitle}>User score: </p>
+              <span>{vote_average}</span>
+            </li>
+            <li>
+              <p className={s.infoTitle}>Overview: </p>{" "}
+              <p className={s.text}>{overview}</p>
+            </li>
+            <li>
+              <p className={s.infoTitle}>Genres:</p>{" "}
+              <p>
+                {genres.map((genre) => (
+                  <p key={genre.id}>{genre.name}</p>
+                ))}
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );

@@ -21,13 +21,13 @@ class RewiesPage extends Component {
 
     return (
       <>
-        <h1>Rewies</h1>
+        <h1 className={s.title}>Rewies</h1>
         {rewies.length > 0 ? (
-          <ul>
+          <ul className={s.list}>
             {rewies.map(({ id, author, content }) => {
               return (
-                <li key={id}>
-                  <p>{author}</p>
+                <li className={s.post} key={id}>
+                  <p className={s.author}>{author}</p>
                   <p>{content}</p>
                 </li>
               );

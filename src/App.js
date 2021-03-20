@@ -11,7 +11,7 @@ const HomePageView = lazy(() =>
 );
 const MovieDetailsPageView = lazy(() =>
   import(
-    "./views/MovieDetailsPageView" /* webpackChunkName: "movie-details-view" */
+    "./views/MovieDetailsPageView/MovieDetailsPageView" /* webpackChunkName: "movie-details-view" */
   )
 );
 const MoviesPageView = lazy(() =>
