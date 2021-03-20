@@ -17,10 +17,18 @@ class MoviesPageView extends Component {
 
   handleSubmit = (ev) => {
     ev.preventDefault();
+    const history = this.props.history;
 
     getSearchMovie(this.state.query).then((result) =>
       this.setState({ searchMovies: result })
     );
+
+    // записывает в url наш запросы из search (при submit формы)
+    history.push({
+      pathname: history.location.pathname,
+      search: `?query=${this.state.query}`,
+      key: history.location.key,
+    });
 
     this.setState({ query: "" });
   };
