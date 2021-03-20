@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, Route } from "react-router-dom";
+import MovieDetailsCard from "../components/MovieDetailsCard/MovieDetailsCard";
 import CastPage from "../components/CastPage/CastPage";
 import RewiesPage from "../components/RewiesPage/RewiesPage";
 import routes from "../routes";
@@ -7,16 +8,16 @@ import x from "../services/movieAPI";
 const { getDetailsMovie } = x;
 class MovieDetailsPageView extends Component {
   state = {
-    imgDetail: {},
-    imgBaseUrl: "https://image.tmdb.org/t/p/w500",
-    imgGenres: [],
+    movieDetail: {},
+    // imgBaseUrl: "https://image.tmdb.org/t/p/w500",
+    movieGenres: [],
   };
 
   async componentDidMount() {
     const { movieID } = this.props.match.params;
 
     getDetailsMovie(movieID).then((result) => {
-      this.setState({ imgDetail: result, imgGenres: result.genres });
+      this.setState({ movieDetail: result, movieGenres: result.genres });
     });
   }
 
@@ -27,14 +28,8 @@ class MovieDetailsPageView extends Component {
   };
 
   render() {
-    const { imgDetail, imgBaseUrl, imgGenres } = this.state;
-    const {
-      poster_path,
-      original_title,
-      id,
-      vote_average,
-      overview,
-    } = imgDetail;
+    const { movieDetail, movieGenres } = this.state;
+    const { id } = movieDetail;
 
     return (
       <>
@@ -42,26 +37,7 @@ class MovieDetailsPageView extends Component {
           <button type="button" onClick={this.handleGoBack}>
             Back
           </button>
-          <div>
-            <img
-              loading="lazy"
-              src={imgBaseUrl + poster_path}
-              alt={original_title}
-              data={id}
-              width="280"
-            />
-          </div>
-          <div>
-            <h2>{original_title}</h2>
-            <p>User score: </p> <span>{vote_average}</span>
-            <p>Overview: </p> <p>{overview}</p>
-            <p>Genres:</p>{" "}
-            <ul>
-              {imgGenres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </ul>
-          </div>
+          <MovieDetailsCard movieDetails={movieDetail} genres={movieGenres} />
         </div>
         <div>
           <ul>
