@@ -19,9 +19,14 @@ class MoviesPageView extends Component {
     ev.preventDefault();
     const history = this.props.history;
 
-    getSearchMovie(this.state.query).then((result) =>
-      this.setState({ searchMovies: result })
-    );
+    getSearchMovie(this.state.query)
+      .then((result) => {
+        if (result.length === 0) {
+          alert(`Sorry! This movie is not found`);
+        }
+        this.setState({ searchMovies: result });
+      })
+      .catch((error) => console.log(error));
 
     // записывает в url наш запросы из search (при submit формы)
     history.push({
