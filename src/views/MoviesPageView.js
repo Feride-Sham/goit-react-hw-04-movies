@@ -15,6 +15,7 @@ class MoviesPageView extends Component {
     this.setState({ query: ev.currentTarget.value });
   };
 
+  
   handleSubmit = (ev) => {
     ev.preventDefault();
     const history = this.props.history;

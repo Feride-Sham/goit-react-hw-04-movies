@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 const imgBaseUrl = "https://image.tmdb.org/t/p/w500";
 
 const MoviePreview = ({ movie, location }) => {
@@ -25,6 +26,11 @@ const MoviePreview = ({ movie, location }) => {
       </Link>
     </li>
   );
+};
+
+MoviePreview.propTypes = {
+  movie: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default withRouter(MoviePreview);

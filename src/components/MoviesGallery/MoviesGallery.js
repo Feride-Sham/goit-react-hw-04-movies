@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import MoviePreview from "../MoviePreview/MoviePreview";
 
 const MoviesGallery = ({ movies }) => {
@@ -9,6 +10,10 @@ const MoviesGallery = ({ movies }) => {
       ))}
     </ul>
   );
+};
+
+MoviesGallery.propTypes = {
+  movies: PropTypes.array.isRequired,
 };
 
 export default MoviesGallery;
