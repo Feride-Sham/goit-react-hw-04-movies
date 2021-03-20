@@ -1,6 +1,5 @@
 .container {
   display: flex;
-
   margin-top: 20px;
 }
 
@@ -10,9 +9,7 @@
   flex-direction: row;
   padding: 20px 20px 40px;
   margin: 0 auto;
-
   color: white;
-
   border-bottom: 1px solid #2a363b;
   background: -webkit-gradient(
     linear,
@@ -56,6 +53,5 @@
 
 .link {
   composes: backBtn;
-
   text-decoration: none;
 }

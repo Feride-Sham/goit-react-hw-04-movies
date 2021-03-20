@@ -7,13 +7,9 @@
   color: white;
 }
 
-.detailBox p {
-  margin: 0;
-}
-
 .poster {
   margin-right: 20px;
-  width: 320px;
+  width: 260px;
   height: 100%;
 }
 

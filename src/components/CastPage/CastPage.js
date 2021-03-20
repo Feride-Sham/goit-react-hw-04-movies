@@ -3,11 +3,8 @@ import x from "../../services/movieAPI";
 import s from "./CastPage.module.css";
 const { getMovieCast } = x;
 
-// const errorImg = "../../image/errorFilm.jpg";
-
 class CastPage extends Component {
   state = {
-    // errorImg: errorImg,
     actors: [],
     imgBaseUrl: "https://image.tmdb.org/t/p/w500",
   };
@@ -39,12 +36,6 @@ class CastPage extends Component {
               </li>
             ) : (
               <li key={id}>
-                {/* <img
-                  loading="lazy"
-                  src={this.state.errorImg}
-                  alt={name}
-                  width="80"
-                ></img> */}
                 <p>{name}</p>
               </li>
             );
