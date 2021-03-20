@@ -42,5 +42,6 @@
 }
 
 .link:hover {
+  color: orange;
   box-shadow: 2px 3px 5px orange;
 }

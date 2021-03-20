@@ -1,13 +1,15 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
+import s from "./MoviePreview.module.css";
 const imgBaseUrl = "https://image.tmdb.org/t/p/w500";
 
 const MoviePreview = ({ movie, location }) => {
   const { id, poster_path, original_title, original_name } = movie;
   return (
-    <li>
+    <li className={s.preview}>
       <Link
+        className={s.link}
         to={{
           pathname: `/movies/${id}`,
           state: {
@@ -16,13 +18,15 @@ const MoviePreview = ({ movie, location }) => {
         }}
       >
         <img
+          className={s.image}
           loading="lazy"
           src={`${imgBaseUrl}${poster_path}`}
           alt={original_title}
           data={id}
-          width="280"
         />
-        <h2>{original_title ? original_title : original_name}</h2>
+        <h2 className={s.title}>
+          {original_title ? original_title : original_name}
+        </h2>
       </Link>
     </li>
   );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import s from "./RewiesPage.module.css";
 import x from "../../services/movieAPI";
 const { getMovieRewies } = x;
 
