@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import s from "./RewiesPage.module.css";
+import s from "./ReviewsPage.module.css";
 import x from "../../services/movieAPI";
 const { getMovieRewies } = x;
 
-class RewiesPage extends Component {
+class ReviewsPage extends Component {
   state = {
     rewies: [],
   };
@@ -21,7 +21,7 @@ class RewiesPage extends Component {
 
     return (
       <>
-        <h1 className={s.title}>Rewies</h1>
+        <h1 className={s.title}>Reviews</h1>
         {rewies.length > 0 ? (
           <ul className={s.list}>
             {rewies.map(({ id, author, content }) => {
@@ -41,4 +41,4 @@ class RewiesPage extends Component {
   }
 }
 
-export default RewiesPage;
+export default ReviewsPage;

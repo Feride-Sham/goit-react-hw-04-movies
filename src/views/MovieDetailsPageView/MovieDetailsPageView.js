@@ -12,9 +12,9 @@ const CastPage = lazy(() =>
   )
 );
 
-const RewiesPage = lazy(() =>
+const ReviewsPage = lazy(() =>
   import(
-    "../../components/RewiesPage/RewiesPage" /* webpackChunkName: "movie-details-page-reviewsPage" */
+    "../../components/ReviewsPage/ReviewsPage" /* webpackChunkName: "movie-details-page-reviewsPage" */
   )
 );
 // ***
@@ -22,7 +22,6 @@ const RewiesPage = lazy(() =>
 class MovieDetailsPageView extends Component {
   state = {
     movieDetail: {},
-    // imgBaseUrl: "https://image.tmdb.org/t/p/w500",
     movieGenres: [],
   };
 
@@ -38,7 +37,6 @@ class MovieDetailsPageView extends Component {
 
   handleGoBack = () => {
     const { history, location } = this.props;
-    //use optional chaining(?.) 2020 JS
     history.push(location?.state?.from || routes.home);
   };
 
@@ -58,16 +56,29 @@ class MovieDetailsPageView extends Component {
           <div>
             <ul className={s.box}>
               <li>
-                <NavLink className={s.link} to={`${this.props.match.url}/cast`}>
+                <NavLink
+                  className={s.link}
+                  to={{
+                    pathname: `${this.props.match.url}/cast`,
+                    state: {
+                      from: this.props.location?.state?.from,
+                    },
+                  }}
+                >
                   Cast
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   className={s.link}
-                  to={`${this.props.match.url}/reviews`}
+                  to={{
+                    pathname: `${this.props.match.url}/reviews`,
+                    state: {
+                      from: this.props.location?.state?.from,
+                    },
+                  }}
                 >
-                  Rewies
+                  Reviews
                 </NavLink>
               </li>
             </ul>
@@ -77,7 +88,7 @@ class MovieDetailsPageView extends Component {
                 <CastPage movieId={id} />
               </Route>
               <Route path={`${this.props.match.url}/reviews`}>
-                <RewiesPage movieId={id} />
+                <ReviewsPage movieId={id} />
               </Route>
             </Suspense>
           </div>

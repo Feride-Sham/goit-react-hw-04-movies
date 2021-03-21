@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import MoviesGallery from "../../components/MoviesGallery/MoviesGallery";
 import s from "./MoviesPageView.module.css";
-// import s from "./Searchbar.module.css";
 import x from "../../services/movieAPI";
 const { getSearchMovie } = x;
 
@@ -10,6 +9,14 @@ class MoviesPageView extends Component {
     query: "",
     searchMovies: [],
   };
+
+  componentDidMount() {
+    if (this.props.location.search) {
+      getSearchMovie(this.props.location.search.slice(7)).then((result) =>
+        this.setState({ searchMovies: result })
+      );
+    }
+  }
 
   handleChange = (ev) => {
     this.setState({ query: ev.currentTarget.value });
@@ -28,7 +35,7 @@ class MoviesPageView extends Component {
       })
       .catch((error) => console.log(error));
 
-    // записывает в url наш запросы из search (при submit формы)
+    // записывает в url наш запрос из search (при submit формы)
     history.push({
       pathname: history.location.pathname,
       search: `?query=${this.state.query}`,
