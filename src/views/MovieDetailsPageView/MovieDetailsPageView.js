@@ -17,9 +17,11 @@ class MovieDetailsPageView extends Component {
   async componentDidMount() {
     const { movieID } = this.props.match.params;
 
-    getDetailsMovie(movieID).then((result) => {
-      this.setState({ movieDetail: result, movieGenres: result.genres });
-    });
+    getDetailsMovie(movieID)
+      .then((result) => {
+        this.setState({ movieDetail: result, movieGenres: result.genres });
+      })
+      .catch((error) => console.error(error));
   }
 
   handleGoBack = () => {

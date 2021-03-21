@@ -11,9 +11,11 @@ class HomePageView extends Component {
   };
 
   async componentDidMount() {
-    getTrendingMovies().then((result) => {
-      this.setState({ movies: result });
-    });
+    getTrendingMovies()
+      .then((result) => {
+        this.setState({ movies: result });
+      })
+      .catch((error) => console.error(error));
   }
 
   render() {

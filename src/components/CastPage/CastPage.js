@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import x from "../../services/movieAPI";
 import s from "./CastPage.module.css";
-const { getMovieCast } = x;
 
+const { getMovieCast } = x;
 class CastPage extends Component {
   state = {
     actors: [],
