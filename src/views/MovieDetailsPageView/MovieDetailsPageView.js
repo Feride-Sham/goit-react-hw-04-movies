@@ -1,12 +1,24 @@
-import React, { Component } from "react";
+import React, { lazy, Suspense, Component } from "react";
 import { NavLink, Route } from "react-router-dom";
 import MovieDetailsCard from "../../components/MovieDetailsCard/MovieDetailsCard";
-import CastPage from "../../components/CastPage/CastPage";
-import RewiesPage from "../../components/RewiesPage/RewiesPage";
 import s from "./MovieDetailsPageView.module.css";
 import routes from "../../routes";
 import x from "../../services/movieAPI";
 const { getDetailsMovie } = x;
+//*** */ динамический импорт
+const CastPage = lazy(() =>
+  import(
+    "../../components/CastPage/CastPage" /* webpackChunkName: "movie-details-page-castPage" */
+  )
+);
+
+const RewiesPage = lazy(() =>
+  import(
+    "../../components/RewiesPage/RewiesPage" /* webpackChunkName: "movie-details-page-reviewsPage" */
+  )
+);
+// ***
+
 class MovieDetailsPageView extends Component {
   state = {
     movieDetail: {},
@@ -60,12 +72,14 @@ class MovieDetailsPageView extends Component {
               </li>
             </ul>
 
-            <Route path={`${this.props.match.url}/cast`}>
-              <CastPage movieId={id} />
-            </Route>
-            <Route path={`${this.props.match.url}/reviews`}>
-              <RewiesPage movieId={id} />
-            </Route>
+            <Suspense>
+              <Route path={`${this.props.match.url}/cast`}>
+                <CastPage movieId={id} />
+              </Route>
+              <Route path={`${this.props.match.url}/reviews`}>
+                <RewiesPage movieId={id} />
+              </Route>
+            </Suspense>
           </div>
         </div>
       </div>
