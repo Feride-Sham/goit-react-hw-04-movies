@@ -8,7 +8,7 @@ class ReviewsPage extends Component {
     rewies: [],
   };
 
-  async componentDidMount() {
+ componentDidMount() {
     const { movieId } = this.props;
 
     getMovieRewies(movieId).then((result) => {

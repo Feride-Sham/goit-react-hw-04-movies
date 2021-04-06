@@ -9,7 +9,7 @@ class CastPage extends Component {
     imgBaseUrl: "https://image.tmdb.org/t/p/w500",
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const { movieId } = this.props;
     getMovieCast(movieId).then((result) => {
       this.setState({ actors: result.cast });

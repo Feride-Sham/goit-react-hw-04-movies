@@ -25,7 +25,7 @@ class MovieDetailsPageView extends Component {
     movieGenres: [],
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const { movieID } = this.props.match.params;
 
     getDetailsMovie(movieID)

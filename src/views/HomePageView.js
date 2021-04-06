@@ -10,7 +10,7 @@ class HomePageView extends Component {
     movies: [],
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     getTrendingMovies()
       .then((result) => {
         this.setState({ movies: result });
